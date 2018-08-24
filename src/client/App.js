@@ -15,31 +15,6 @@ export default class App extends Component {
   componentDidMount() {
   }
 
-  handleLinkInput(event){
-    console.log(event.target.value)
-    this.setState({link: event.target.value});
-
-  }
-
-  // handleLinkSubmit(event) {
-  //   // event.preventDefault();
-  //
-  //   const herokuLink = {
-  //     link: this.state.link
-  //   };
-  //
-  //   let herokuLinkJson = JSON.parse(herokuLink);
-  //   console.log(herokuLinkJson);
-  //
-  //   axios.post(`https://localhost:8080/api/herokuLinks`, {herokuLinkJson})
-  //   .then(response => {
-  //     console.log(response);
-  //   })
-  //   .catch(error => {
-  //     console.log(error.response)
-  //   })
-  // }
-
   inputChangeHandler(event){
     this.setState({link: event.target.value});
   }

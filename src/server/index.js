@@ -33,15 +33,44 @@ app.post('/api/herokuLinks', function(req, res, next) {
 });
 
 app.get('/api/herokuLinks', function(req, res, next) {
+
   Link.find(function(err, links) {
     if (err) {
       return next(err);
     } else {
       res.json(links);
-    }
+      }
 
-  })
+    })
 });
+
+function getHerokuPage(herokuLink){
+  console.log("boogie ==>", herokuLink)
+  setInterval(()=> {
+    console.log(herokuLink);
+   axios.get(`https://${herokuLink}.herokuapp.com`)
+   .then((res) => {
+     console.log(res.data);
+   })
+ },300000)
+
+}
+
+function keepHerokuAppsAwake() {
+  Link.find(function(err, links) {
+    if (err) {
+      return next(err);
+    } else {
+        let herokuLinks = JSON.parse(JSON.stringify(links));
+        Object.keys(herokuLinks).map((link,key) => {
+          let herokuLink = herokuLinks[key].link;
+          getHerokuPage(herokuLink);
+        });
+      }
+
+    })
+}
+keepHerokuAppsAwake();
 
 app.listen(PORT, () => {
   console.log("application listening on port:", PORT);
