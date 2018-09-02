@@ -1,8 +1,68 @@
-h1 {
-  color: green;
-}
 
 body {
   text-align: center;
-  margin: auto;
+  /* font-style: arial; */
+}
+
+button{
+  background:rgb(85,76,150);
+  color:#fff;
+  border:none;
+  position:relative;
+  height:60px;
+  font-size:1.6em;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+button:hover{
+  background:#fff;
+  color:rgb(55,78,130);
+}
+button:before,button:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: rgb(55,78,130);
+  transition:400ms ease all;
+}
+button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+button:hover:before,button:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+.input-container{
+  font-size: 25px;
+  margin-bottom: 5%;
+  margin-top: 3.5%;
+}
+
+.input-container > input{
+  position: relative;
+  bottom: 5px;
+  height: 35px;
+  width: 200px;
+  background: rgb(249,249,249);
+  border: none;
+  outline: none
+}
+
+.heroku-logo {
+  margin-top: 2.5%;
+  width: 150px;
+  height: 50px;
+}
+
+.description{
+  margin-top: 2.5%;
 }

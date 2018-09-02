@@ -33,10 +33,13 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Enter your heroku link here:</h1>
-        <input type="text" name="herokuLink" onChange={this.inputChangeHandler}/>
-        <button value="submit" onClick={this.formHandler} />
+      <div className="container">
+        <img className="heroku-logo" src="/public/heroku.png" />Ping
+        <div className="input-container">
+          http://<input type="text" placeholder="enter app name" name="herokuLink" onChange={this.inputChangeHandler}/>.herokuapp.com
+        </div>
+        <button onClick={this.formHandler}>Keep My App Awake </button>
+        <p className="description">HerokuPing is a simple application that pings your heroku site every 30 minutes. No more sleepy apps.</p>
       </div>
     );
   }
