@@ -9,7 +9,8 @@ app.use(bodyParser.json({type: "*/*"}));
 require('dotenv').config();
 const axios = require('axios');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/wake_heroku', function(err, database) {
+var CONNECTIONDETAILS = process.env.connectionString;
+mongoose.connect(CONNECTIONDETAILS, function(err, database) {
   if (err)
     throw err;
   else {
@@ -18,7 +19,7 @@ mongoose.connect('mongodb://localhost:27017/wake_heroku', function(err, database
   }
 }).then(() => console.log('connection successful')).catch((err) => console.log(err));
 mongoose.Promise = global.Promise;
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8082;
 
 var Link = require('./model/Links.js');
 

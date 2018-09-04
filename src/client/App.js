@@ -34,7 +34,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="container">
-        <img className="heroku-logo" src="/public/heroku.png" />Ping
+        <img className="heroku-logo" src="./public/img/heroku.png" />Ping
         <div className="input-container">
           http://<input type="text" placeholder="enter app name" name="herokuLink" onChange={this.inputChangeHandler}/>.herokuapp.com
         </div>
